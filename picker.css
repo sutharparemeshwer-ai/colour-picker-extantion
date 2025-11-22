@@ -1,0 +1,23 @@
+#color-picker-overlay-1982 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2147483647; /* Max z-index */
+  cursor: crosshair;
+}
+
+#color-picker-swatch-1982 {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+  pointer-events: none; /* So it doesn't block mouse events on the overlay */
+  border-radius: 50%; /* Make it a circle */
+  transform: translate(-50%, -50%); /* Center on cursor */
+  background-size: 1000% 1000%; /* For magnification */
+  background-repeat: no-repeat;
+  z-index: 2147483647; /* Ensure it's on top of the overlay */
+}

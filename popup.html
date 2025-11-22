@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Color Picker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      width: 280px;
+      padding: 20px;
+      background: linear-gradient(to bottom, #fdfbfb, #ebedee);
+      color: #333;
+    }
+    #picker-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    #pickBtn {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+    #pickBtn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+    #result-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+    }
+    #color-swatch {
+      width: 80px;
+      height: 80px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      border: 2px solid white;
+    }
+    #color-values {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+    .color-info {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      padding: 8px 12px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .color-label {
+      font-size: 14px;
+      font-weight: 500;
+      width: 40px;
+      color: #555;
+    }
+    .color-info input {
+      flex-grow: 1;
+      padding: 5px;
+      border: none;
+      background: transparent;
+      font-size: 14px;
+      font-family: 'Roboto', sans-serif;
+      color: #333;
+    }
+    .copy-btn {
+      padding: 5px;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .copy-btn svg {
+      width: 18px;
+      height: 18px;
+      fill: #888;
+      transition: fill 0.2s ease;
+    }
+    .copy-btn:hover svg {
+      fill: #2575fc;
+    }
+  </style>
+</head>
+<body>
+  <div id="picker-container">
+    <button id="pickBtn">Pick Color from Page</button>
+  </div>
+  <div id="result-container">
+    <div id="color-swatch" style="background-color: #ffffff;"></div>
+    <div id="color-values">
+      <div class="color-info">
+        <span class="color-label">HEX</span>
+        <input type="text" id="hex-value" value="#ffffff" readonly>
+        <button class="copy-btn" data-format="hex" title="Copy HEX">
+          <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        </button>
+      </div>
+      <div class="color-info">
+        <span class="color-label">RGB</span>
+        <input type="text" id="rgb-value" value="rgb(255, 255, 255)" readonly>
+        <button class="copy-btn" data-format="rgb" title="Copy RGB">
+          <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        </button>
+      </div>
+      <div class="color-info">
+        <span class="color-label">HSL</span>
+        <input type="text" id="hsl-value" value="hsl(0, 0%, 100%)" readonly>
+        <button class="copy-btn" data-format="hsl" title="Copy HSL">
+          <svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
